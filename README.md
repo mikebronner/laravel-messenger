@@ -20,6 +20,13 @@ or add it to you composer.json file:
     /* ... */
 ```
 
+And then add the service provider to your app.php config file:
+```php
+	// 'providers' => array(
+		'GeneaLabs\BonesFlash\BonesFlashServiceProvider',
+    // );
+```
+
 ## Usage
 
 You can add any one of the following alerts anywhere in your app. Most common-place is probably the controller or global.php (for error catching).
