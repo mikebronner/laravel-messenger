@@ -37,7 +37,7 @@ class FlashNotifier
         $this->session->flash('flashNotification.modal', true);
     }
 
-    public function message($message, $level = 'info')
+    private function message($message, $level = 'info')
     {
         $this->session->flash('flashNotification.message', $message);
         $this->session->flash('flashNotification.level', $level);
