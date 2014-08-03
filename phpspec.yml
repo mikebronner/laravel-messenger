@@ -1,0 +1,5 @@
+suites:
+  genealabs_suite:
+    namespace: GeneaLabs
+    src_path: src
+    spec_prefix: spec
