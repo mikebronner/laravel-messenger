@@ -14,9 +14,7 @@
         "illuminate/session": "4.2.*"
     },
     "require-dev": {
-        "phpspec/phpspec": "*",
-        "satooshi/php-coveralls": "dev-master",
-        "henrikbjorn/phpspec-code-coverage": "~0.2"
+        "phpspec/phpspec": "*"
     },
     "autoload": {
         "classmap": [
