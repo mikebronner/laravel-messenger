@@ -9,4 +9,4 @@ extensions:
 
 code_coverage:
   format: php
-  output: coverage.php
+  output: /tmp/coverage/phpspec.coverage.php
