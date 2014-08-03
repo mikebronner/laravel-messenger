@@ -11,6 +11,3 @@ before_script:
   - composer install --prefer-source --no-interaction --dev
 
 script: vendor/bin/phpspec run --no-interaction
-
-after_script:
-  - php vendor/bin/coveralls -v
