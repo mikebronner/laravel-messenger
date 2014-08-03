@@ -15,6 +15,6 @@ or add it to you composer.json file:
 ```json
     "require": {
         /* ... */,
-        "illuminate/session": "4.2.*"
+        "genealabs/bones-flash": "*"
     },
 ```
