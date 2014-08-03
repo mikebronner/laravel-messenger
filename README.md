@@ -69,3 +69,11 @@ Flash::danger($message);
 // shows a message in a bootstrap modal window
 Flash::modal($message);
 ```
+
+## Dependencies
+
+At this time this package requires:
+
+- Laravel 4.2+
+- Bootstrap 3.1+
+- jQuery 1.7+
