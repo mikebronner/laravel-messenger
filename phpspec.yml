@@ -8,7 +8,5 @@ extensions:
   - PhpSpec\Extension\CodeCoverageExtension
 
 code_coverage:
-  format:
-    - clover
-  output:
-    - coverage.xml
+  format: php
+  output: coverage.php
