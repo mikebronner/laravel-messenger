@@ -21,7 +21,7 @@
             "src/migrations"
         ],
         "psr-4": {
-            "GeneaLabs\\Bones\\Flash\\": "src/GeneLabs/Bones/Flash/"
+            "GeneaLabs\\Bones\\Flash\\": "src/GeneaLabs/Bones/Flash/"
         }
     },
     "minimum-stability": "stable"

@@ -29,7 +29,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bindShared('flash', function ($app) {
-			return $this->app->make('GeneaLabs\Bones\FlashNotifier');
+			return $this->app->make('GeneaLabs\Bones\Flash\FlashNotifier');
 		});
 	}
 
