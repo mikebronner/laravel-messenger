@@ -9,7 +9,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = true;
+	protected $defer = false;
 
 	/**
 	 * Bootstrap the application events.
@@ -18,7 +18,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('genealabs/bones-flash');
+//		$this->package('genealabs/bones-flash');
 	}
 
 	/**
