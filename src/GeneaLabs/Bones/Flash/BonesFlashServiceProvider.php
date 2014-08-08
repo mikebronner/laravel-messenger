@@ -1,4 +1,4 @@
-<?php namespace GeneaLabs\BonesFlash;
+<?php namespace GeneaLabs\Bones\Flash;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,7 +9,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = false;
+	protected $defer = true;
 
 	/**
 	 * Bootstrap the application events.
@@ -29,7 +29,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bindShared('flash', function ($app) {
-			return $this->app->make('GeneaLabs\BonesFlash\FlashNotifier');
+			return $this->app->make('GeneaLabs\Bones\FlashNotifier');
 		});
 	}
 

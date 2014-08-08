@@ -20,8 +20,8 @@
         "classmap": [
             "src/migrations"
         ],
-        "psr-0": {
-            "GeneaLabs\\BonesFlash\\": "src/"
+        "psr-4": {
+            "GeneaLabs\\Bones\\Flash\\": "src/GeneLabs/Bones/Flash/"
         }
     },
     "minimum-stability": "stable"

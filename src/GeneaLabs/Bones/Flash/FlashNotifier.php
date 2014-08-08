@@ -1,4 +1,4 @@
-<?php namespace GeneaLabs\BonesFlash;
+<?php namespace GeneaLabs\Bones\Flash;
 
 use Illuminate\Session\Store;
 
