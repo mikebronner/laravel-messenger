@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\GeneaLabs\BonesFlash;
+namespace spec\GeneaLabs\Bones\Flash;
 
 use Illuminate\Session\Store;
 use PhpSpec\ObjectBehavior;
@@ -15,6 +15,6 @@ class FlashNotifierSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('GeneaLabs\BonesFlash\FlashNotifier');
+        $this->shouldHaveType('GeneaLabs\Bones\Flash\FlashNotifier');
     }
 }
