@@ -18,7 +18,8 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-//		$this->package('genealabs/bones-flash');
+		\View::addNamespace('bones-flash', __DIR__.'/../../../views');
+		$this->package('genealabs/bones-flash');
 	}
 
 	/**
@@ -29,7 +30,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bindShared('flash', function ($app) {
-			return $this->app->make('GeneaLabs\Bones\Flash\FlashNotifier');
+			return $app->make('GeneaLabs\Bones\Flash\FlashNotifier');
 		});
 	}
 
@@ -40,7 +41,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('flash');
 	}
 
 }
