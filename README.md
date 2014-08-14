@@ -32,7 +32,7 @@ And then add the service provider to your app.php config file:
 You can add any one of the following alerts anywhere in your app. Most common-place is probably the controller or global.php (for error catching).
 
 ```php
-use use GeneaLabs\BonesFlash\Flash;
+use GeneaLabs\Bones\Flash\Flash;
 
 class MyController extends BaseController
 {
@@ -43,6 +43,12 @@ class MyController extends BaseController
 		return View::make('index');
 	}
 }
+```
+
+And include it in your index.blade.php where you would like the notification to appear:
+
+```php
+@include('bones-flash::bones.flash')
 ```
 
 or:
