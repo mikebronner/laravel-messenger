@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/GeneaLabs/bones-flash.svg?branch=master)](https://travis-ci.org/GeneaLabs/bones-flash) [![Latest Stable Version](https://poser.pugx.org/genealabs/bones-flash/v/stable.svg)](https://packagist.org/packages/genealabs/bones-flash) [![Latest Unstable Version](https://poser.pugx.org/genealabs/bones-flash/v/unstable.svg)](https://packagist.org/packages/genealabs/bones-flash) [![License](https://poser.pugx.org/genealabs/bones-flash/license.svg)](https://packagist.org/packages/genealabs/bones-flash)
 
-# Laravel Bones Flash Notification (bones-flash) 
+# Laravel Bones Flash Notification (bones-flash)
 
 ## Installation
 
@@ -87,6 +87,6 @@ Flash::modal($message);
 
 At this time this package requires:
 
-- Laravel 4.2+
+- Laravel 5.0+
 - Bootstrap 3.1+
 - jQuery 1.7+
