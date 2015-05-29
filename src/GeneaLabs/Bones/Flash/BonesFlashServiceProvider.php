@@ -19,7 +19,7 @@ class BonesFlashServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		\View::addNamespace('bones-flash', __DIR__.'/../../../views');
-		$this->package('genealabs/bones-flash');
+//		$this->package('genealabs/bones-flash');
 	}
 
 	/**
