@@ -10,7 +10,7 @@
 </div>
 @endif
 
-@if (Session::has('flashNotification.autoHide'))
+@if (Session::get('flashNotification.autoHide'))
 <script>
 	window.setTimeout(function() {
 		$(".notification.success").fadeTo(750, 0).slideUp(750, function() {
