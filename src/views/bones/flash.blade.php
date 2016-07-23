@@ -24,4 +24,8 @@
 		});
 	}, 10000);
 </script>
+<?php
+	Session::forget('flashNotification.message');
+	Session::forget('flashNotification.modal');
+?>
 @endif
