@@ -1,5 +1,7 @@
 <?php namespace GeneaLabs\Bones\Flash;
 
+use Illuminate\Support\Facades\Session;
+
 final class FlashNotifier
 {
     public function success($message)
