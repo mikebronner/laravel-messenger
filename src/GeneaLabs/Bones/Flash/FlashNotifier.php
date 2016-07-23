@@ -1,16 +1,7 @@
 <?php namespace GeneaLabs\Bones\Flash;
 
-use Illuminate\Session\Store;
-
-class FlashNotifier
+final class FlashNotifier
 {
-    private $session;
-
-    public function __construct(Store $session)
-    {
-        $this->session = $session;
-    }
-
     public function success($message)
     {
         $this->message($message, 'success');
@@ -34,12 +25,12 @@ class FlashNotifier
     public function modal($message)
     {
         $this->message($message);
-        $this->session->flash('flashNotification.modal', true);
+        Session::put('flashNotification.modal', true);
     }
 
     private function message($message, $level = 'info')
     {
-        $this->session->flash('flashNotification.message', $message);
-        $this->session->flash('flashNotification.level', $level);
+        Session::put('flashNotification.message', $message);
+        Session::put('flashNotification.level', $level);
     }
 }
