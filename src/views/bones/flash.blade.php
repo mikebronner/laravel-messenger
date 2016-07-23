@@ -9,6 +9,8 @@
 	</div>
 </div>
 @endif
+
+@if (Session::has('flashNotification.autoHide'))
 <script>
 	window.setTimeout(function() {
 		$(".notification.success").fadeTo(750, 0).slideUp(750, function() {
@@ -24,8 +26,11 @@
 		});
 	}, 10000);
 </script>
+@endif
+
 <?php
 	Session::forget('flashNotification.message');
-	Session::forget('flashNotification.modal');
+    Session::forget('flashNotification.modal');
+    Session::forget('flashNotification.autoHide');
 ?>
 @endif
