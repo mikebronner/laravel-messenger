@@ -5,7 +5,7 @@
 <div class="notification {{ Session::get('flashNotification.level') }}">
 	<div class="alert alert-dismissable alert-{{ Session::get('flashNotification.level') }}">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-		<p>{{ Session::get('flashNotification.message') }}</p>
+		<p>{!! session('flashNotification.message') !!}</p>
 	</div>
 </div>
 @endif
