@@ -14,9 +14,10 @@
         "illuminate/session": "5.5.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.3",
-        "sebastian/phpcpd": "^3.0",
-        "phpmd/phpmd": "^2.6"
+        "mockery/mockery": "0.9.*",
+        "phpmd/phpmd": "^2.6",
+        "phpunit/phpunit": "~6.0",
+        "sebastian/phpcpd": "^3.0"
     },
     "autoload": {
         "psr-4": {
