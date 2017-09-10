@@ -1,0 +1,1 @@
+global.swal = require('sweetalert');

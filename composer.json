@@ -5,23 +5,30 @@
     "authors": [
         {
             "name": "GeneaLabs, LLC",
-            "email": "info@genealabs.com"
+            "email": "hello@genealabs.com"
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "*",
-        "illuminate/session": "*"
+        "php": ">=7.0.0",
+        "illuminate/support": "5.5.*",
+        "illuminate/session": "5.5.*"
     },
     "require-dev": {
-        "phpspec/phpspec": "*"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-4": {
-            "GeneaLabs\\Bones\\Flash\\": "src/GeneaLabs/Bones/Flash/"
+            "GeneaLabs\\LaravelMessenger\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeneaLabs\\LaravelMessenger\\Providers\\Service"
+            ],
+            "aliases": {
+                "Messenger": "GeneaLabs\\LaravelMessenger\\Facades\\Messenger"
+            }
         }
     },
     "minimum-stability": "stable"
