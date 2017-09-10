@@ -1,4 +1,4 @@
-<?php namespace GeneaLabs\Bones\Flash;
+<?php namespace GeneaLabs\LaravelMessenger\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

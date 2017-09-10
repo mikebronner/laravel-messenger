@@ -1,6 +1,7 @@
 <?php namespace GeneaLabs\LaravelMessenger\Providers;
 
 use Exception;
+use GeneaLabs\LaravelMessenger\Messenger;
 use Illuminate\Support\ServiceProvider;
 
 class Service extends ServiceProvider
@@ -11,6 +12,7 @@ class Service extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'genealabs-laravel-messenger');
         $configPath = __DIR__ . '/../../config/genealabs-laravel-messenger.php';
+        $this->mergeConfigFrom($configPath, 'genealabs-laravel-messenger');
         $this->publishes([
             $configPath => config_path('genealabs-laravel-messenger.php')
         ], 'config');
@@ -18,6 +20,9 @@ class Service extends ServiceProvider
 
     public function register()
     {
+        $this->app->singleton('messenger', function () {
+            return new Messenger();
+        });
         $this->registerBladeDirective('deliver');
         $this->registerBladeDirective('send');
     }
@@ -25,12 +30,15 @@ class Service extends ServiceProvider
     private function registerBladeDirective($formMethod, $alias = null)
     {
         $alias = $alias ?: $formMethod;
+        $blade = app('view')->getEngineResolver()
+            ->resolve('blade')
+            ->getCompiler();
 
-        if (array_key_exists($alias, app('blade.compiler')->getCustomDirectives())) {
+        if (array_key_exists($alias, $blade->getCustomDirectives())) {
             throw new Exception("Blade directive '{$alias}' is already registered.");
         }
 
-        app('blade.compiler')->directive($alias, function ($parameters) use ($formMethod) {
+        $blade->directive($alias, function ($parameters) use ($formMethod) {
             $parameters = trim($parameters, "()");
 
             return "<?php echo app('messenger')->{$formMethod}({$parameters}); ?>";

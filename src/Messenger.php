@@ -5,7 +5,7 @@ class Messenger
     public function deliver()
     {
         $framework = session('genealabs-laravel-messenger.framework');
-        $type = session('genealabs-laravel-messenger.type') ?? 'alert';
+        $type = session('genealabs-laravel-messenger.type');
         $autoHide = session('genealabs-laravel-messenger.autoHide');
         $title = session('genealabs-laravel-messenger.title');
         $message = session('genealabs-laravel-messenger.message');
@@ -17,7 +17,7 @@ class Messenger
         session()->forget('genealabs-laravel-messenger.level');
         session()->forget('genealabs-laravel-messenger.message');
         session()->forget('genealabs-laravel-messenger.title');
-
+// dd($framework, $type);
         return view("genealabs-laravel-messenger::{$framework}.{$type}")->with([
             'autoHide' => $autoHide,
             'message' => $message,
@@ -32,7 +32,8 @@ class Messenger
         string $title = null,
         string $level = null,
         bool $autoHide = null,
-        string $framework = null
+        string $framework = null,
+        string $type = null
     ) {
         session([
             'genealabs-laravel-messenger.autoHide' => $autoHide
@@ -46,6 +47,10 @@ class Messenger
             'genealabs-laravel-messenger.message' => $message,
             'genealabs-laravel-messenger.title' => $title
                 ?: '',
+            'genealabs-laravel-messenger.type' =>
+                in_array($type, ['alert', 'modal'])
+                    ? $type
+                    : 'alert',
         ]);
     }
 }

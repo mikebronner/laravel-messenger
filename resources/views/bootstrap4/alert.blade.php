@@ -1,36 +1,34 @@
-@if (Session::has('flashNotification.message'))
-@if (Session::has('flashNotification.modal'))
-@include('partials.modal', ['modalClass' => 'flashModal', 'title' => 'Notice', 'body' => Session::get('flashNotification.message')])
-@else
-<div class="notification {{ Session::get('flashNotification.level') }}">
-	<div class="alert alert-dismissable alert-{{ Session::get('flashNotification.level') }}">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-		<p>{!! session('flashNotification.message') !!}</p>
-	</div>
-</div>
+@if ($message || $title)
+    <div class="genealabs-laravel-messenger alert alert-dismissable alert-{{ $level }}" role="alert">
+    	<button type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-hidden="true"
+        >
+            x
+        </button>
+
+        @if ($title)
+            <h4>{!! $title !!}</h4>
+        @endif
+
+        @if ($message)
+            <p>{!! $message !!}</p>
+        @endif
+    </div>
 @endif
 
-@if (Session::get('flashNotification.autoHide'))
-<script>
-	window.setTimeout(function() {
-		$(".notification.success").fadeTo(750, 0).slideUp(750, function() {
-			$(this).remove();
-		});
-	}, 5000);
-	window.setTimeout(function() {
-		$(".notification.info").fadeTo(750, 0).slideUp(750, function() {
-			$(this).remove();
-		});
-		$(".notification.message").fadeTo(750, 0).slideUp(750, function() {
-			$(this).remove();
-		});
-	}, 10000);
-</script>
-@endif
-
-<?php
-	Session::forget('flashNotification.message');
-    Session::forget('flashNotification.modal');
-    Session::forget('flashNotification.autoHide');
-?>
-@endif
+@section ($section)
+    @if ($autoHide)
+        <script>
+        	window.setTimeout(function() {
+        		$(".genealabs-laravel-messenger.alert-success").slideUp(750, function() {
+        			$(this).remove();
+        		});
+                $(".genealabs-laravel-messenger.alert-info").slideUp(750, function() {
+        			$(this).remove();
+        		});
+        	}, 15000);
+        </script>
+    @endif
+@endsection

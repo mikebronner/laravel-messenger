@@ -1,5 +1,5 @@
 @if ($message || $title)
-    <div class="genealabs-laravel-messenger alert alert-dismissable alert-{{ $level }}">
+    <div class="genealabs-laravel-messenger alert alert-dismissable alert-{{ $level }}" role="alert">
     	<button type="button"
             class="close"
             data-dismiss="alert"
@@ -22,10 +22,10 @@
     @if ($autoHide)
         <script>
         	window.setTimeout(function() {
-        		$(".genealabs-laravel-messenger.alert-success").fadeTo(750, 0).slideUp(750, function() {
+        		$(".genealabs-laravel-messenger.alert-success").slideUp(750, function() {
         			$(this).remove();
         		});
-                $(".genealabs-laravel-messenger.alert-info").fadeTo(750, 0).slideUp(750, function() {
+                $(".genealabs-laravel-messenger.alert-info").slideUp(750, function() {
         			$(this).remove();
         		});
         	}, 15000);
