@@ -89,3 +89,6 @@ Nothing else needs to be done, as the service provider and facades will be auto-
 - **framework**: string | optional | default: 'bootstrap3'
   Specify the framework you are using. Right now it only supports 'bootstrap3'
   or 'bootstrap4'.
+- **type**: string | optional | default: 'alert'
+  Invoke any of the available alert modes. Currently only supports 'alert' or
+  'modal'.
