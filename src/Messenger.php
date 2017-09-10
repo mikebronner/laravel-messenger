@@ -17,7 +17,12 @@ class Messenger
         session()->forget('genealabs-laravel-messenger.level');
         session()->forget('genealabs-laravel-messenger.message');
         session()->forget('genealabs-laravel-messenger.title');
-// dd($framework, $type);
+        session()->forget('genealabs-laravel-messenger.type');
+
+        if (! $message) {
+            return;
+        }
+
         return view("genealabs-laravel-messenger::{$framework}.{$type}")->with([
             'autoHide' => $autoHide,
             'message' => $message,
