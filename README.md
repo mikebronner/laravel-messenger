@@ -1,92 +1,91 @@
-[![Build Status](https://travis-ci.org/GeneaLabs/bones-flash.svg?branch=master)](https://travis-ci.org/GeneaLabs/bones-flash) [![Latest Stable Version](https://poser.pugx.org/genealabs/bones-flash/v/stable.svg)](https://packagist.org/packages/genealabs/bones-flash) [![Latest Unstable Version](https://poser.pugx.org/genealabs/bones-flash/v/unstable.svg)](https://packagist.org/packages/genealabs/bones-flash) [![License](https://poser.pugx.org/genealabs/bones-flash/license.svg)](https://packagist.org/packages/genealabs/bones-flash)
+# Messenger for Laravel
+## Goal
+Provide a drop-in application-wide alerting functionality to display various
+ types of alerts and notifications to the user in response to their actions.
 
-# Laravel Bones Flash Notification (bones-flash)
+## Prerequisites
+- Bootstrap 3 or 4
+- Laravel 5.5
+- PHP >= 7.0.0
 
 ## Installation
-
 To install bones-flash as a stand-alone module:
 
 ```sh
-composer require genealabs/bones-flash:*
+composer require genealabs/laravel-messenger
 ```
 
-or add it to you composer.json file:
+Nothing else needs to be done, as the service provider and facades will be auto-
+ loaded.
 
-```json
-    "require": {
-        /* ... */,
-        "genealabs/bones-flash": "*"
-    },
-    /* ... */
-```
-
-And then add the service provider to your app.php config file:
+## Configuration
 ```php
-	// 'providers' => array(
-		'GeneaLabs\Bones\Flash\BonesFlashServiceProvider',
-    // );
+/*
+|--------------------------------------------------------------------------
+| CSS Framework Configuration
+|--------------------------------------------------------------------------
+|
+| Here you may configure the CSS framework to be used by Messenger for
+| Laravel. This allows you to switch or upgrade frameworks without
+| having to recreate all your alerts.
+|
+| Available Settings: "bootstrap3", "bootstrap4"
+|
+*/
+
+'framework' => 'bootstrap4',
+
+/*
+|--------------------------------------------------------------------------
+| JavaScript Blade Section
+|--------------------------------------------------------------------------
+|
+| Your layout blade template will need to have a section dedicated to
+| inline JavaScript methods and commands that are injected by this
+| package. This will eliminate conflicts with Vue, as well as
+| making sure that JS is run after all deps are loaded.
+|
+*/
+
+'javascript-blade-section' => 'js',
 ```
 
 ## Usage
+1. Add the placeholder to your layout blade file:
+  ```php
+  <div class="container">
 
-You can add any one of the following alerts anywhere in your app. Most common-place is probably the controller or global.php (for error catching).
+      @deliver
 
-```php
-use GeneaLabs\Bones\Flash\Flash;
+  </div>
+  ```
+2. Trigger an alert using either the facade/IoC helper, or a blade directive
+ in another view:
+  ```php
+  // IoS helper:
+  app('messenger')->send('message', 'title', 'level', autoHide, 'framework');
 
-class MyController extends BaseController
-{
-	public function index()
-	{
-		Flash::info("test");
+  // Facade:
+  Messenger::send('message', 'title', 'level', autoHide, 'framework');
 
-		return View::make('index');
-	}
-}
-```
+  // Blade directive:
+  @send ('message', 'title', 'level', autoHide, 'framework')
+  ```
 
-And include it in your index.blade.php where you would like the notification to appear:
-
-```php
-@include('bones-flash::bones.flash')
-```
-
-or:
-
-```php
-App::error(function(Exception $exception, $code)
-{
-    Flash::danger("An error occurred");
-	Log::error($exception);
-	View::make('my.view');
-});
-```
-
-## Methods
-
-The following methods are available to use:
-
-```php
-// shows a bootstrap success message
-Flash::success($message);
-
-// shows a bootstrap info message
-Flash::info($message);
-
-// shows a bootstrap warning message
-Flash::warning($message);
-
-// shows a bootstrap danger message
-Flash::danger($message);
-
-// shows a message in a bootstrap modal window
-Flash::modal($message);
-```
-
-## Dependencies
-
-At this time this package requires:
-
-- Laravel 5.0+
-- Bootstrap 3.1+
-- jQuery 1.7+
+### Parameters
+- **message**: string|required
+  The body of the message you want to deliver to your user. This may contain
+  HTML. If you add links, be sure to add the appropriate classes for the
+  framework you are using.
+- **title**: string | optional | default: ''
+  Title of the notification, will be inserted as an `<h4>` tag, can also include
+  HTML. Again, keep in mind to add any framework-specific formatting yourself.
+- **level**: string | optional | default: 'info'
+  If provided, must be one of the following: 'info', 'success', 'warning',
+  'danger'.
+- **autoHide**: boolean | optional | default: false
+  Allows you to let the notification disappear automatically after 15 seconds. If
+  autoHide is false, the user will be provided a close button in the alert.
+- **framework**: string | optional | default: 'bootstrap3'
+  Specify the framework you are using. Right now it only supports 'bootstrap3'
+  or 'bootstrap4'.
