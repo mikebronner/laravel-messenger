@@ -14,14 +14,23 @@
         "illuminate/session": "5.5.*"
     },
     "require-dev": {
+        "doctrine/dbal": "^2.5",
+        "fzaninotto/faker": "~1.4",
+        "laravel/laravel": "5.5.*",
         "mockery/mockery": "0.9.*",
         "phpmd/phpmd": "^2.6",
         "phpunit/phpunit": "~6.0",
-        "sebastian/phpcpd": "^3.0"
+        "sebastian/phpcpd": "*"
     },
     "autoload": {
         "psr-4": {
             "GeneaLabs\\LaravelMessenger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "vendor/laravel/laravel/app/",
+            "GeneaLabs\\LaravelMessenger\\Tests\\": "tests/"
         }
     },
     "extra": {
