@@ -11,8 +11,6 @@ Provide a drop-in application-wide alerting functionality to display various
 - PHP >= 7.0.0
 
 ## Installation
-To install bones-flash as a stand-alone module:
-
 ```sh
 composer require genealabs/laravel-messenger
 ```
