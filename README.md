@@ -61,7 +61,7 @@ Nothing else needs to be done, as the service provider and facades will be auto-
 2. Trigger an alert using either the facade/IoC helper, or a blade directive
  in another view:
   ```php
-  // IoS helper:
+  // IoC helper:
   app('messenger')->send('message', 'title', 'level', autoHide, 'framework');
 
   // Facade:
