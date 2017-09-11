@@ -15,8 +15,7 @@ Provide a drop-in application-wide alerting functionality to display various
 composer require genealabs/laravel-messenger
 ```
 
-Nothing else needs to be done, as the service provider and facades will be auto-
- loaded.
+Nothing else needs to be done, as the service provider and facades will be auto-loaded.
 
 ## Configuration
 ```php
