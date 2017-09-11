@@ -1,5 +1,5 @@
 # Messenger for Laravel
-![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30254628-89d9e1fe-9650-11e7-8e39-a73d18cc6fd3.jpg)
+![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30254662-c66b17d2-9650-11e7-8775-f59dcdd446a3.jpg)
 
 ## Goal
 Provide a drop-in application-wide alerting functionality to display various
