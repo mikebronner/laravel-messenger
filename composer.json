@@ -19,7 +19,7 @@
         "laravel/laravel": "5.5.*",
         "mockery/mockery": "0.9.*",
         "phpmd/phpmd": "^2.6",
-        "phpunit/phpunit": "5.*",
+        "phpunit/phpunit": "5.7.*",
         "sebastian/phpcpd": "*"
     },
     "autoload": {
