@@ -1,4 +1,10 @@
 # Messenger for Laravel
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://travis-ci.org/GeneaLabs/laravel-messenger)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/filp/whoops.svg)](https://scrutinizer-ci.com/g/GeneaLabs/laravel-messenger)
+[![Coveralls](https://img.shields.io/coveralls/jekyll/jekyll.svg)](https://coveralls.io/github/GeneaLabs/laravel-messenger)
+[![Github Releases](https://img.shields.io/github/downloads/atom/atom/latest/total.svg)](https://github.com/GeneaLabs/laravel-messenger)
+[![Packagist](https://img.shields.io/packagist/dt/doctrine/orm.svg)](https://packagist.org/packages/genealabs/laravel-messenger)
+
 ![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30284899-2fcd34be-96d1-11e7-8ded-c41b7e9f5879.jpg)
 
 ## Goal
