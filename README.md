@@ -1,4 +1,6 @@
 # Messenger for Laravel
+![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30284899-2fcd34be-96d1-11e7-8ded-c41b7e9f5879.jpg)
+
 ## Goal
 Provide a drop-in application-wide alerting functionality to display various
  types of alerts and notifications to the user in response to their actions.
@@ -9,14 +11,11 @@ Provide a drop-in application-wide alerting functionality to display various
 - PHP >= 7.0.0
 
 ## Installation
-To install bones-flash as a stand-alone module:
-
 ```sh
 composer require genealabs/laravel-messenger
 ```
 
-Nothing else needs to be done, as the service provider and facades will be auto-
- loaded.
+Nothing else needs to be done, as the service provider and facades will be auto-loaded.
 
 ## Configuration
 ```php
@@ -62,7 +61,7 @@ Nothing else needs to be done, as the service provider and facades will be auto-
 2. Trigger an alert using either the facade/IoC helper, or a blade directive
  in another view:
   ```php
-  // IoS helper:
+  // IoC helper:
   app('messenger')->send('message', 'title', 'level', autoHide, 'framework');
 
   // Facade:
