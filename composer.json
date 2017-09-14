@@ -16,6 +16,7 @@
     "require-dev": {
         "doctrine/dbal": "^2.5",
         "fzaninotto/faker": "~1.4",
+        "illuminate/routing": "5.5.*",
         "laravel/laravel": "5.5.*",
         "mockery/mockery": "0.9.*",
         "phpmd/phpmd": "^2.6",

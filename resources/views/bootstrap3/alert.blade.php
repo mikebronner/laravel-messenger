@@ -15,6 +15,7 @@
         @if ($message)
             <p>{!! $message !!}</p>
         @endif
+
     </div>
 @endif
 

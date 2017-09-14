@@ -10,7 +10,14 @@ class Service extends ServiceProvider
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'genealabs-laravel-messenger');
+        if (! $this->app->routesAreCached()) {
+            require __DIR__ . '/../../routes/web.php';
+        }
+
+        $this->loadViewsFrom(
+            __DIR__ . '/../../resources/views',
+            'genealabs-laravel-messenger'
+        );
         $configPath = __DIR__ . '/../../config/genealabs-laravel-messenger.php';
         $this->mergeConfigFrom($configPath, 'genealabs-laravel-messenger');
         $this->publishes([
@@ -21,7 +28,7 @@ class Service extends ServiceProvider
     public function register()
     {
         $this->app->singleton('messenger', function () {
-            return new Messenger();
+            return new Messenger;
         });
         $this->registerBladeDirective('deliver');
         $this->registerBladeDirective('send');
