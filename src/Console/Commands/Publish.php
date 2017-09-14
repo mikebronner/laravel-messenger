@@ -1,47 +1,22 @@
-<?php namespace GeneaLabs\LaravelCasts\Console\Commands;
+<?php namespace GeneaLabs\LaravelMessenger\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel;
-use GeneaLabs\LaravelCasts\Providers\LaravelCastsService;
-use File;
+use GeneaLabs\LaravelMessenger\Providers\Service;
 
 class Publish extends Command
 {
-    protected $signature = 'casts:publish {--assets} {--config}';
-    protected $description = 'Publish various assets of the Laravel Casts package.';
+    protected $signature = 'messenger:publish {--config}';
+    protected $description = 'Publish configuration file of the Laravel Messenger package.';
 
     public function handle()
     {
-        if ($this->option('assets')) {
-            $this->delTree(public_path('genealabs-laravel-casts'));
-            $this->call('vendor:publish', [
-                '--provider' => LaravelCastsService::class,
-                '--tag' => ['assets'],
-                '--force' => true,
-            ]);
-        }
-
         if ($this->option('config')) {
             $this->call('vendor:publish', [
-                '--provider' => LaravelCastsService::class,
+                '--provider' => Service::class,
                 '--tag' => ['config'],
                 '--force' => true,
             ]);
         }
-    }
-
-    private function delTree($folder)
-    {
-        if (! is_dir($folder)) {
-            return false;
-        }
-
-        $files = array_diff(scandir($folder), ['.','..']);
-
-        foreach ($files as $file) {
-            is_dir("$folder/$file") ? $this->delTree("$folder/$file") : unlink("$folder/$file");
-        }
-
-        return rmdir($folder);
     }
 }

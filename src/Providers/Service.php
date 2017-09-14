@@ -2,6 +2,7 @@
 
 use Exception;
 use GeneaLabs\LaravelMessenger\Messenger;
+use GeneaLabs\LaravelMessenger\Console\Commands\Publish;
 use Illuminate\Support\ServiceProvider;
 
 class Service extends ServiceProvider
@@ -27,6 +28,8 @@ class Service extends ServiceProvider
 
     public function register()
     {
+        $this->commands(Publish::class);
+
         $this->app->singleton('messenger', function () {
             return new Messenger;
         });
