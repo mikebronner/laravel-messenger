@@ -57,6 +57,8 @@ class Service extends ServiceProvider
 
     public function provides() : array
     {
-        return array('genealabs-laravel-messenger');
+        return [
+            'genealabs-laravel-messenger',
+        ];
     }
 }
