@@ -124,5 +124,6 @@ Specify the framework you are using. Right now it only supports 'bootstrap3'
   or 'bootstrap4'.
 #### **type**
 _string | optional | default: 'alert'_
+
 Invoke any of the available alert modes. Currently only supports 'alert' or
  'modal'.
