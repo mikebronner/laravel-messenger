@@ -92,28 +92,37 @@ After that you can configure the configuration according to your needs:
   ```
 
 ### Parameters
-- **message**: _string|required_
+#### **message**
+_string|required_
 
-  The body of the message you want to deliver to your user. This may contain
-  HTML. If you add links, be sure to add the appropriate classes for the
-  framework you are using.
-- **title**: _string | optional | default: ''_
+The body of the message you want to deliver to your user. This may contain
+ HTML. If you add links, be sure to add the appropriate classes for the
+ framework you are using.
 
-  Title of the notification, will be inserted as an `<h4>` tag, can also include
-  HTML. Again, keep in mind to add any framework-specific formatting yourself.
-- **level**: _string | optional | default: 'info'_
+#### **title**
+_string | optional | default: ''_
 
-  If provided, must be one of the following: 'info', 'success', 'warning',
-  'danger'.
-- **autoHide**: _boolean | optional | default: false_
+Title of the notification, will be inserted as an `<h4>` tag, can also include
+ HTML. Again, keep in mind to add any framework-specific formatting yourself.
 
-  Allows you to let the notification disappear automatically after 15 seconds. If
-  autoHide is false, the user will be provided a close button in the alert.
-- **framework**: _string | optional | default: 'bootstrap3'_
+#### **level**
+_string | optional | default: 'info'_
 
-  Specify the framework you are using. Right now it only supports 'bootstrap3'
+If provided, must be one of the following: 'info', 'success', 'warning',
+ 'danger'.
+
+#### **autoHide**
+_boolean | optional | default: false_
+
+Allows you to let the notification disappear automatically after 15 seconds. If
+ autoHide is false, the user will be provided a close button in the alert.
+
+#### **framework**
+_string | optional | default: 'bootstrap3'_
+
+Specify the framework you are using. Right now it only supports 'bootstrap3'
   or 'bootstrap4'.
-- **type**: _string | optional | default: 'alert'_
-
-  Invoke any of the available alert modes. Currently only supports 'alert' or
-  'modal'.
+#### **type**
+_string | optional | default: 'alert'_
+Invoke any of the available alert modes. Currently only supports 'alert' or
+ 'modal'.
