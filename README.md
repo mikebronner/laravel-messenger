@@ -1,11 +1,11 @@
+![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30284899-2fcd34be-96d1-11e7-8ded-c41b7e9f5879.jpg)
+
 # Messenger for Laravel
 [![Travis](https://img.shields.io/travis/GeneaLabs/laravel-messenger.svg)](https://travis-ci.org/GeneaLabs/laravel-messenger)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/GeneaLabs/laravel-messenger.svg)](https://scrutinizer-ci.com/g/GeneaLabs/laravel-messenger)
 [![Coveralls](https://img.shields.io/coveralls/GeneaLabs/laravel-messenger.svg)](https://coveralls.io/github/GeneaLabs/laravel-messenger)
 [![GitHub (pre-)release](https://img.shields.io/github/release/GeneaLabs/laravel-messenger/all.svg)](https://github.com/GeneaLabs/laravel-messenger)
 [![Packagist](https://img.shields.io/packagist/dt/GeneaLabs/laravel-messenger.svg)](https://packagist.org/packages/genealabs/laravel-messenger)
-
-![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30284899-2fcd34be-96d1-11e7-8ded-c41b7e9f5879.jpg)
 
 ## Goal
 Provide a drop-in application-wide alerting functionality to display various
