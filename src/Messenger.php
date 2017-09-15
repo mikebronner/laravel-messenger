@@ -6,69 +6,41 @@ class Messenger
 {
     public function deliver() : View
     {
-        $framework = session('genealabs-laravel-messenger.framework');
-        $type = session('genealabs-laravel-messenger.type');
-        $autoHide = session('genealabs-laravel-messenger.autoHide');
-        $title = session('genealabs-laravel-messenger.title');
         $message = session('genealabs-laravel-messenger.message');
-        $level = session('genealabs-laravel-messenger.level');
-        $section = config('genealabs-laravel-messenger.javascript-blade-section');
-
-        session()->forget('genealabs-laravel-messenger.autoHide');
-        session()->forget('genealabs-laravel-messenger.framework');
-        session()->forget('genealabs-laravel-messenger.level');
         session()->forget('genealabs-laravel-messenger.message');
-        session()->forget('genealabs-laravel-messenger.title');
-        session()->forget('genealabs-laravel-messenger.type');
 
-        if (! $framework || ! $type) {
+        if (! $message) {
             return view("genealabs-laravel-messenger::empty");
         }
 
-        return view("genealabs-laravel-messenger::{$framework}.{$type}")->with([
-            'autoHide' => $autoHide,
-            'message' => $message,
-            'level' => $level,
-            'section' => $section,
-            'title' => $title,
+        return view("genealabs-laravel-messenger::{$message->framework}.{$message->type}")->with([
+            'autoHide' => $message->autoHide,
+            'message' => $message->message,
+            'level' => $message->level,
+            'section' => $message->section,
+            'title' => $message->title,
         ]);
     }
 
     public function send(
-        string $message,
+        string $text,
         string $title = null,
         string $level = null,
         bool $autoHide = null,
         string $framework = null,
         string $type = null
     ) {
-        $framework = $this->getValueOrDefault(
-            $framework,
-            config('genealabs-laravel-messenger.framework')
-        );
-        $level = $this->getValueOrDefault(
-            $level,
-            'info',
-            ['info', 'success', 'warning', 'danger']
-        );
-        $type = $this->getValueOrDefault($type, 'alert', ['alert', 'modal']);
-
-        session([
-            'genealabs-laravel-messenger.autoHide' => $autoHide,
-            'genealabs-laravel-messenger.framework' => $framework,
-            'genealabs-laravel-messenger.level' => $level,
-            'genealabs-laravel-messenger.message' => $message,
-            'genealabs-laravel-messenger.title' => $title,
-            'genealabs-laravel-messenger.type' => $type,
+        $message = new Message([
+            'message' => $text,
+            'title' => $title,
+            'level' => $level,
+            'autoHide' => $autoHide,
+            'framework' => $framework,
+            'type' => $type,
         ]);
-    }
 
-    protected function getValueOrDefault($value, $default, array $haystack = [])
-    {
-        if (count($haystack)) {
-            return in_array($value, $haystack) ? $value : $default;
+        if ($text) {
+            session(['genealabs-laravel-messenger.message' => $message]);
         }
-
-        return $value ?: $default;
     }
 }

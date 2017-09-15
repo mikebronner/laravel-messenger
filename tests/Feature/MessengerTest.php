@@ -74,8 +74,6 @@ class MessengerTest extends TestCase
             route('genealabs-laravel-messenger.tests.bootstrap4')
         );
 
-
-
         $response->assertStatus(200);
         $response->assertSee('<p>success message with <a href="">link</a>.</p>');
         $response->assertSee('<h4 class="modal-title">title with <a href="">link</a></h4>');
@@ -97,8 +95,6 @@ class MessengerTest extends TestCase
             route('genealabs-laravel-messenger.tests.bootstrap4')
         );
 
-
-
         $response->assertStatus(200);
         $response->assertSee('<p>success message with <a href="">link</a>.</p>');
         $response->assertSee('<h4 class="modal-title">title with <a href="">link</a></h4>');
@@ -112,28 +108,33 @@ class MessengerTest extends TestCase
         $level = 'success';
         $autoHide = true;
         $framework = 'bootstrap4';
+        $type = 'modal';
 
-        app('messenger')->send($message, $title, $level,$autoHide, $framework);
+        app('messenger')->send($message, $title, $level,$autoHide, $framework, $type);
 
         $this->assertEquals(
             $message,
-            session('genealabs-laravel-messenger.message')
+            session('genealabs-laravel-messenger.message')->message
         );
         $this->assertEquals(
             $title,
-            session('genealabs-laravel-messenger.title')
+            session('genealabs-laravel-messenger.message')->title
         );
         $this->assertEquals(
             $level,
-            session('genealabs-laravel-messenger.level')
+            session('genealabs-laravel-messenger.message')->level
         );
         $this->assertEquals(
             $autoHide,
-            session('genealabs-laravel-messenger.autoHide')
+            session('genealabs-laravel-messenger.message')->autoHide
         );
         $this->assertEquals(
             $framework,
-            session('genealabs-laravel-messenger.framework')
+            session('genealabs-laravel-messenger.message')->framework
+        );
+        $this->assertEquals(
+            $type,
+            session('genealabs-laravel-messenger.message')->type
         );
     }
 
