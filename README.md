@@ -24,6 +24,13 @@ composer require genealabs/laravel-messenger
 Nothing else needs to be done, as the service provider and facades will be auto-loaded.
 
 ## Configuration
+If you need to make changes to the default configuration, run the following
+command to publish the configuration file `config\genealabs-laravel-messenger.php`:
+```sh
+php artisan messenger:publish --config
+```
+
+After that you can configure the configuration according to your needs:
 ```php
 /*
 |--------------------------------------------------------------------------
