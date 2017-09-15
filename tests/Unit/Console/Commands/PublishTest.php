@@ -10,4 +10,12 @@ class PublishTest extends TestCase
 
         $this->assertFileExists(base_path('config/genealabs-laravel-messenger.php'));
     }
+
+    public function testConfigFileContainsCorrectSettings()
+    {
+        $settings = file_get_contents(base_path('config/genealabs-laravel-messenger.php'));
+
+        $this->assertContains("'framework' => 'bootstrap4',", $settings);
+        $this->assertContains("'javascript-blade-section' => 'js',", $settings);
+    }
 }
