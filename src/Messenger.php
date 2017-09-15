@@ -40,22 +40,24 @@ class Messenger
         string $framework = null,
         string $type = null
     ) {
+        $autoHide = (bool) $autoHide;
+        $framework = $framework
+            ?: config('genealabs-laravel-messenger.framework');
+        $level = in_array($level, ['info', 'success', 'warning', 'danger'])
+            ? $level
+            : 'info';
+        $title = $title ?: '';
+        $type = in_array($type, ['alert', 'modal'])
+            ? $type
+            : 'alert';
+
         session([
-            'genealabs-laravel-messenger.autoHide' => $autoHide
-                ?: false,
-            'genealabs-laravel-messenger.framework' => $framework
-                ?: config('genealabs-laravel-messenger.framework'),
-            'genealabs-laravel-messenger.level' =>
-                in_array($level, ['info', 'success', 'warning', 'danger'])
-                    ? $level
-                    : 'info',
+            'genealabs-laravel-messenger.autoHide' => $autoHide,
+            'genealabs-laravel-messenger.framework' => $framework,
+            'genealabs-laravel-messenger.level' => $level,
             'genealabs-laravel-messenger.message' => $message,
-            'genealabs-laravel-messenger.title' => $title
-                ?: '',
-            'genealabs-laravel-messenger.type' =>
-                in_array($type, ['alert', 'modal'])
-                    ? $type
-                    : 'alert',
+            'genealabs-laravel-messenger.title' => $title,
+            'genealabs-laravel-messenger.type' => $type,
         ]);
     }
 }
