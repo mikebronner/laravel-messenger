@@ -9,13 +9,19 @@
 [![Packagist](https://img.shields.io/packagist/dt/GeneaLabs/laravel-messenger.svg)](https://packagist.org/packages/genealabs/laravel-messenger)
 
 ## Goal
-Provide a drop-in application-wide alerting functionality to display various
+To provide a drop-in, application-wide alerting functionality to display various
  types of alerts and notifications to the user in response to their actions.
 
 ## Prerequisites
 - Bootstrap 3 or 4
 - Laravel 5.5
 - PHP >= 7.0.0
+
+## Features
+- Feedback notifications in form of bootstrap alerts or modals.
+- Send notifications from facade, app IoC reference, or blade
+  directive.
+- Display notification easily via a blade command.
 
 ## Installation
 ```sh
@@ -64,16 +70,8 @@ After that you can configure the configuration according to your needs:
 ```
 
 ## Usage
-1. Add the placeholder to your layout blade file:
-  ```php
-  <div class="container">
-
-      @deliver
-
-  </div>
-  ```
-2. Trigger an alert using either the facade/IoC helper, or a blade directive
- in another view:
+1. Trigger an alert using either the facade/IoC helper, or a blade directive
+  in another view:
   ```php
   // IoC helper:
   app('messenger')->send('message', 'title', 'level', autoHide, 'framework');
@@ -84,24 +82,38 @@ After that you can configure the configuration according to your needs:
   // Blade directive:
   @send ('message', 'title', 'level', autoHide, 'framework')
   ```
+2. Add the placeholder to your layout blade file:
+  ```php
+  <div class="container">
+
+      @deliver
+
+  </div>
+  ```
 
 ### Parameters
-- **message**: string|required
+- **message**: _string|required_
+
   The body of the message you want to deliver to your user. This may contain
   HTML. If you add links, be sure to add the appropriate classes for the
   framework you are using.
-- **title**: string | optional | default: ''
+- **title**: _string | optional | default: ''_
+
   Title of the notification, will be inserted as an `<h4>` tag, can also include
   HTML. Again, keep in mind to add any framework-specific formatting yourself.
-- **level**: string | optional | default: 'info'
+- **level**: _string | optional | default: 'info'_
+
   If provided, must be one of the following: 'info', 'success', 'warning',
   'danger'.
-- **autoHide**: boolean | optional | default: false
+- **autoHide**: _boolean | optional | default: false_
+
   Allows you to let the notification disappear automatically after 15 seconds. If
   autoHide is false, the user will be provided a close button in the alert.
-- **framework**: string | optional | default: 'bootstrap3'
+- **framework**: _string | optional | default: 'bootstrap3'_
+
   Specify the framework you are using. Right now it only supports 'bootstrap3'
   or 'bootstrap4'.
-- **type**: string | optional | default: 'alert'
+- **type**: _string | optional | default: 'alert'_
+
   Invoke any of the available alert modes. Currently only supports 'alert' or
   'modal'.
