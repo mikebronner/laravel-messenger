@@ -59,6 +59,52 @@ class MessengerTest extends TestCase
         $response->assertSee('<div class="genealabs-laravel-messenger alert alert-dismissable alert-success" role="alert">');
     }
 
+    public function testDeliveryOfModalMessageForBootstrap3()
+    {
+        app('messenger')->send(
+            'success message with <a href="">link</a>.',
+            'title with <a href="">link</a>',
+            'success',
+            true,
+            'bootstrap3',
+            'modal'
+        );
+
+        $response = $this->get(
+            route('genealabs-laravel-messenger.tests.bootstrap4')
+        );
+
+
+
+        $response->assertStatus(200);
+        $response->assertSee('<p>success message with <a href="">link</a>.</p>');
+        $response->assertSee('<h4 class="modal-title">title with <a href="">link</a></h4>');
+        $response->assertSee('<button type="button" class="btn btn-block btn-success" data-dismiss="modal">I Understand</button>');
+    }
+
+    public function testDeliveryOfModalMessageForBootstrap4()
+    {
+        app('messenger')->send(
+            'success message with <a href="">link</a>.',
+            'title with <a href="">link</a>',
+            'success',
+            true,
+            'bootstrap4',
+            'modal'
+        );
+
+        $response = $this->get(
+            route('genealabs-laravel-messenger.tests.bootstrap4')
+        );
+
+
+
+        $response->assertStatus(200);
+        $response->assertSee('<p>success message with <a href="">link</a>.</p>');
+        $response->assertSee('<h4 class="modal-title">title with <a href="">link</a></h4>');
+        $response->assertSee('<button type="button" class="btn btn-block btn-success" data-dismiss="modal">I Understand</button>');
+    }
+
     public function testSessionVariablesAreSetWhenSending()
     {
         $message = 'success message with <a href="">link</a>.';
@@ -100,7 +146,7 @@ class MessengerTest extends TestCase
         $framework = 'bootstrap4';
 
         app('messenger')->send($message, $title, $level,$autoHide, $framework);
-        $response = $this->get(
+        $this->get(
             route('genealabs-laravel-messenger.tests.bootstrap4')
         );
 

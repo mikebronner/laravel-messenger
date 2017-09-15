@@ -14,7 +14,7 @@
 
                 @if ($message)
                     <div class="modal-body">
-                        <p>{{ $message }}</p>
+                        <p>{!! $message !!}</p>
                     </div>
                 @endif
 
