@@ -1,8 +1,10 @@
 <?php namespace GeneaLabs\LaravelMessenger;
 
+use Illuminate\View\View;
+
 class Messenger
 {
-    public function deliver()
+    public function deliver() : View
     {
         $framework = session('genealabs-laravel-messenger.framework');
         $type = session('genealabs-laravel-messenger.type');
@@ -19,8 +21,8 @@ class Messenger
         session()->forget('genealabs-laravel-messenger.title');
         session()->forget('genealabs-laravel-messenger.type');
 
-        if (! $message) {
-            return;
+        if (! $framework || ! $type) {
+            return view("genealabs-laravel-messenger::empty");
         }
 
         return view("genealabs-laravel-messenger::{$framework}.{$type}")->with([
