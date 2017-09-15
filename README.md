@@ -2,6 +2,7 @@
 
 # Messenger for Laravel
 [![Travis](https://img.shields.io/travis/GeneaLabs/laravel-messenger.svg)](https://travis-ci.org/GeneaLabs/laravel-messenger)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/90b80280-406d-419e-b02a-5debc51e709d.svg)](https://insight.sensiolabs.com/projects/90b80280-406d-419e-b02a-5debc51e709d/analyses/1)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/GeneaLabs/laravel-messenger.svg)](https://scrutinizer-ci.com/g/GeneaLabs/laravel-messenger)
 [![Coveralls](https://img.shields.io/coveralls/GeneaLabs/laravel-messenger.svg)](https://coveralls.io/github/GeneaLabs/laravel-messenger)
 [![GitHub (pre-)release](https://img.shields.io/github/release/GeneaLabs/laravel-messenger/all.svg)](https://github.com/GeneaLabs/laravel-messenger)
