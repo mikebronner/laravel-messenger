@@ -1,6 +1,7 @@
 ![germaniacargobike-002](https://user-images.githubusercontent.com/1791050/30284899-2fcd34be-96d1-11e7-8ded-c41b7e9f5879.jpg)
 
 # Messenger for Laravel
+[![Join the chat at https://gitter.im/GeneaLabs/laravel-messenger](https://badges.gitter.im/GeneaLabs/laravel-messenger.svg)](https://gitter.im/GeneaLabs/laravel-messenger?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Travis](https://img.shields.io/travis/GeneaLabs/laravel-messenger.svg)](https://travis-ci.org/GeneaLabs/laravel-messenger)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/90b80280-406d-419e-b02a-5debc51e709d.svg)](https://insight.sensiolabs.com/projects/90b80280-406d-419e-b02a-5debc51e709d/analyses/1)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/GeneaLabs/laravel-messenger.svg)](https://scrutinizer-ci.com/g/GeneaLabs/laravel-messenger)
