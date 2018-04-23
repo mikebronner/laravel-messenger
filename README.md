@@ -16,7 +16,7 @@ To provide a drop-in, application-wide alerting functionality to display various
 ## Prerequisites
 - Bootstrap 3 or 4
 - Laravel 5.5 or 5.6
-- PHP >= 7.0.0
+- PHP >= 7.1.3
 
 ## Features
 - Feedback notifications in form of bootstrap alerts or modals.
