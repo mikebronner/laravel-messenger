@@ -15,7 +15,7 @@ class PublishTest extends TestCase
     {
         $settings = file_get_contents(base_path('config/genealabs-laravel-messenger.php'));
 
-        $this->assertContains("'framework' => 'bootstrap4',", $settings);
-        $this->assertContains("'javascript-blade-section' => 'js',", $settings);
+        $this->assertStringContainsString("'framework' => 'bootstrap4',", $settings);
+        $this->assertStringContainsString("'javascript-blade-section' => 'js',", $settings);
     }
 }
