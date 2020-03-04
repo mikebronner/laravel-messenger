@@ -20,7 +20,7 @@
         "jenssegers/model": "dev-master@dev"
     },
     "require-dev": {
-        "laravel/laravel": "dev-develop@dev",
+        "laravel/laravel": "^7.0",
         "phpmd/phpmd": "^2.7",
         "phpunit/phpunit": "^8.5",
         "php-coveralls/php-coveralls" : "^2.2",
