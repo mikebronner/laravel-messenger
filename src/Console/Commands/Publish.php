@@ -18,5 +18,13 @@ class Publish extends Command
                 '--force' => true,
             ]);
         }
+
+        if ($this->option('views')) {
+            $this->call('vendor:publish', [
+                '--provider' => Service::class,
+                '--tag' => ['views'],
+                '--force' => true,
+            ]);
+        }
     }
 }
