@@ -24,7 +24,7 @@ class Service extends ServiceProvider
             'genealabs-laravel-messenger'
         );
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/genealabs/laravel-messenger'),
+            __DIR__ . '/../../resources/views' => resource_path('views/vendor/genealabs/laravel-messenger'),
         ], "views");
 
         $configPath = __DIR__ . '/../../config/genealabs-laravel-messenger.php';
