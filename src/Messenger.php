@@ -15,6 +15,7 @@ class Messenger
 
         return view("genealabs-laravel-messenger::{$message->framework}.{$message->type}")->with([
             'autoHide' => $message->autoHide,
+            "id" => $message->id,
             'message' => $message->message,
             'level' => $message->level,
             'section' => $message->section,
