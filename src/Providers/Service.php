@@ -1,4 +1,8 @@
-<?php namespace GeneaLabs\LaravelMessenger\Providers;
+<?php
+
+declare(strict_types=1);
+
+namespace GeneaLabs\LaravelMessenger\Providers;
 
 use Exception;
 use GeneaLabs\LaravelMessenger\Messenger;
@@ -9,7 +13,7 @@ class Service extends ServiceProvider
 {
     protected $defer = false;
 
-    public function boot()
+    public function boot(): void
     {
         if (! $this->app->routesAreCached()) {
             require __DIR__ . '/../../routes/web.php';
@@ -19,6 +23,10 @@ class Service extends ServiceProvider
             __DIR__ . '/../../resources/views',
             'genealabs-laravel-messenger'
         );
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/genealabs/laravel-messenger'),
+        ]);
+
         $configPath = __DIR__ . '/../../config/genealabs-laravel-messenger.php';
         $this->mergeConfigFrom($configPath, 'genealabs-laravel-messenger');
         $this->publishes([
@@ -26,7 +34,7 @@ class Service extends ServiceProvider
         ], 'config');
     }
 
-    public function register()
+    public function register(): void
     {
         $this->commands(Publish::class);
 
@@ -37,7 +45,7 @@ class Service extends ServiceProvider
         $this->registerBladeDirective('send');
     }
 
-    private function registerBladeDirective($formMethod, $alias = null)
+    private function registerBladeDirective($formMethod, $alias = null): void
     {
         $alias = $alias ?: $formMethod;
         $blade = app('view')->getEngineResolver()
@@ -55,7 +63,7 @@ class Service extends ServiceProvider
         });
     }
 
-    public function provides() : array
+    public function provides(): array
     {
         return [
             'genealabs-laravel-messenger',
